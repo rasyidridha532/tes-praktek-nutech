@@ -1,0 +1,24 @@
+{
+  "name": "nutech-rasyid",
+  "version": "1.0.0",
+  "description": "Sebuah project untuk take home test di Nutech Integrasi",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./app.js"
+  },
+  "author": "M. Rasyid Ridha",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.7",
+    "pg": "^8.6.0"
+  }
+}
