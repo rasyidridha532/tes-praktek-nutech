@@ -66,6 +66,22 @@ router.put('/:namabarang', verifyToken, async (req, res) => {
     }
 });
 
+router.get('/:namabarang', async (req, res) => {
+    try {
+        const { namabarang } = req.params;
+
+        const { rows } = await pool.query('SELECT * FROM barang WHERE nama_barang = $1', [namabarang]);
+
+        if (rows.length !== 0) {
+            return res.send(rows);
+        } else {
+            return res.send('Barang yang dicari tidak ada!');
+        }
+    } catch (error) {
+        console.log(error.message);
+    }
+})
+
 //hapus barang
 router.delete('/:namabarang', verifyToken, async (req, res) => {
     try {
