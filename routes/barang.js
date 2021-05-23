@@ -52,13 +52,13 @@ router.post('/', verifyToken, async (req, res) => {
 });
 
 //submit edit barang
-router.put('/edit/:id', verifyToken, async (req, res) => {
+router.put('/:namabarang', verifyToken, async (req, res) => {
     try {
-        const { id } = req.params;
+        const { namabarang } = req.params;
         const { foto_barang, nama_barang, harga_jual, harga_beli, stok } = req.body;
 
-        const updateBarang = await pool.query('UPDATE barang SET foto_barang = $1, nama_barang = $2, harga_jual = $3, harga_beli = $4, stok = $5 WHERE id_barang = $6',
-        [foto_barang, nama_barang, harga_jual, harga_beli, stok, id])
+        const updateBarang = await pool.query('UPDATE barang SET foto_barang = $1, nama_barang = $2, harga_jual = $3, harga_beli = $4, stok = $5 WHERE nama_barang = $6',
+        [foto_barang, nama_barang, harga_jual, harga_beli, stok, namabarang])
 
         return res.send('Barang telah diupdate!');
     } catch (error) {
